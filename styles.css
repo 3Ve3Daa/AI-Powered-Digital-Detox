@@ -32,6 +32,15 @@ body {
     scroll-behavior: smooth;
 }
 
+/* Disable scroll snap on mobile for better UX */
+@media (max-width: 768px) {
+    .scroll-container {
+        scroll-snap-type: none;
+        height: auto;
+        overflow-y: auto;
+    }
+}
+
 .section {
     min-height: 100vh;
     display: flex;
@@ -42,6 +51,15 @@ body {
     scroll-snap-align: start;
     position: relative;
     animation: fadeIn 0.8s ease-out;
+}
+
+/* Better mobile sections */
+@media (max-width: 768px) {
+    .section {
+        min-height: auto;
+        padding: 3rem 1.5rem;
+        scroll-snap-align: none;
+    }
 }
 
 @keyframes fadeIn {
@@ -59,6 +77,13 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+}
+
+/* Hide nav dots on mobile, show mobile nav instead */
+@media (max-width: 768px) {
+    .nav-dots {
+        display: none;
+    }
 }
 
 .nav-dot {
@@ -943,6 +968,27 @@ body {
         width: 25px;
         height: 25px;
     }
+    
+    /* Mobile-friendly buttons */
+    .start-button, .next-button, .action-button {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    /* Better spacing for mobile */
+    .section-header {
+        margin-bottom: 2rem;
+    }
+    
+    /* Hero section mobile */
+    .phone {
+        width: 100px;
+        height: 200px;
+    }
+    
+    .hero-content {
+        padding: 0 1rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -970,6 +1016,36 @@ body {
     .rule-number {
         font-size: 2.5rem;
     }
+    
+    /* Better mobile quiz */
+    .question-title {
+        font-size: 1.2rem;
+    }
+    
+    .question-text {
+        font-size: 1rem;
+    }
+    
+    /* Mobile navigation buttons smaller text */
+    .mobile-nav-btn {
+        font-size: 0.7rem;
+        padding: 0.8rem 0.3rem;
+    }
+    
+    /* Compact sections on small screens */
+    .section {
+        padding: 2rem 1rem;
+    }
+    
+    .section-header {
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Smaller pixel decorations */
+    .pixel-decoration {
+        width: 20px;
+        height: 20px;
+    }
 }
 
 /* Print Styles */
@@ -980,5 +1056,90 @@ body {
     
     .section {
         page-break-inside: avoid;
+    }
+}
+
+/* Mobile Navigation Bar */
+.mobile-nav {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--bg-cream);
+    border-top: 3px solid var(--burgundy);
+    padding: 0.8rem 1rem;
+    z-index: 1000;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .mobile-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.5rem;
+    }
+}
+
+.mobile-nav-btn {
+    flex: 1;
+    background: transparent;
+    border: 2px solid var(--burgundy);
+    color: var(--burgundy);
+    padding: 0.6rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.75rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.mobile-nav-btn:active {
+    background: var(--burgundy);
+    color: var(--bg-cream);
+    transform: scale(0.95);
+}
+
+.mobile-nav-btn.active {
+    background: var(--burgundy);
+    color: var(--bg-cream);
+}
+
+.mobile-nav-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+/* Add padding to last section for mobile nav */
+@media (max-width: 768px) {
+    .final-section {
+        padding-bottom: 6rem;
+    }
+    
+    /* Make next buttons more visible on mobile */
+    .next-button {
+        position: relative;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    /* Better touch targets */
+    .problem-card, .rule-card, .checklist-item, .stat-card {
+        min-height: 60px;
+        touch-action: manipulation;
+    }
+    
+    /* Improve quiz buttons for mobile */
+    .quiz-option {
+        padding: 1.5rem 1.2rem;
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+    
+    /* Better day bars for touch */
+    .day-bar {
+        padding: 0.5rem 0.2rem;
     }
 }
