@@ -257,9 +257,9 @@ This project is created for educational purposes as part of a university assignm
 ## 👨‍🎓 Author
 
 **Your Name**
-- University: [Your University Name]
-- Course: [Your Course Name]
-- Year: 2024/2025
+- University: [IITU](https://iitu.edu.kz/ru/)
+- Course: [Software Engineering]
+- Year: 2026
 - GitHub: [@3Ve3Daa](https://github.com/3Ve3Daa)
 
 ---
@@ -277,7 +277,7 @@ This project is created for educational purposes as part of a university assignm
 
 Have questions or suggestions?
 
-- 📧 Email: your.email@example.com
+- 📧 Email: adilzanbekov7@gmail.com
 - 💬 GitHub Issues: [Create an issue](https://github.com/3Ve3Daa/AI-Powered-Digital-Detox/issues)
 - 🌟 Star this project if you find it helpful!
 
