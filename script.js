@@ -7,6 +7,42 @@ function scrollToSection(index) {
     document.querySelectorAll('.nav-dot').forEach((dot, i) => {
         dot.classList.toggle('active', i === index);
     });
+    
+    // Update mobile indicator
+    updateMobileNav(index);
+}
+
+// Get current section
+function getCurrentSection() {
+    const sections = document.querySelectorAll('.section');
+    const scrollContainer = document.querySelector('.scroll-container');
+    const scrollPosition = scrollContainer.scrollTop + window.innerHeight / 2;
+    
+    for (let i = 0; i < sections.length; i++) {
+        const section = sections[i];
+        const top = section.offsetTop;
+        const bottom = top + section.offsetHeight;
+        
+        if (scrollPosition >= top && scrollPosition < bottom) {
+            return i;
+        }
+    }
+    return 0;
+}
+
+// Update mobile navigation
+function updateMobileNav(index) {
+    const indicator = document.getElementById('mobile-section-indicator');
+    if (indicator) {
+        const sectionNames = ['START', 'AUDIT', 'DETOX', 'RULES', 'SECURITY', 'QUIZ', 'FINAL'];
+        indicator.textContent = `${index + 1}/7`;
+        // Add small label
+        if (window.innerWidth <= 480) {
+            indicator.textContent = `${index + 1}/7`;
+        } else {
+            indicator.textContent = `${sectionNames[index]} (${index + 1}/7)`;
+        }
+    }
 }
 
 // Nav dot click handlers
@@ -31,6 +67,7 @@ scrollContainer.addEventListener('scroll', () => {
             document.querySelectorAll('.nav-dot').forEach((dot, i) => {
                 dot.classList.toggle('active', i === index);
             });
+            updateMobileNav(index);
         }
     });
 });
@@ -290,33 +327,47 @@ window.addEventListener('load', () => {
         document.body.style.transition = 'opacity 0.5s ease';
         document.body.style.opacity = '1';
     }, 100);
+    
+    // Initialize mobile nav
+    updateMobileNav(0);
 });
 
 // Touch swipe support for mobile
 let touchStartY = 0;
 let touchEndY = 0;
+let touchStartX = 0;
+let touchEndX = 0;
 
 scrollContainer.addEventListener('touchstart', (e) => {
     touchStartY = e.changedTouches[0].screenY;
+    touchStartX = e.changedTouches[0].screenX;
 }, { passive: true });
 
 scrollContainer.addEventListener('touchend', (e) => {
     touchEndY = e.changedTouches[0].screenY;
+    touchEndX = e.changedTouches[0].screenX;
     handleSwipe();
 }, { passive: true });
 
 function handleSwipe() {
-    const currentSection = document.querySelector('.nav-dot.active');
-    const currentIndex = parseInt(currentSection.dataset.section);
+    const currentSection = getCurrentSection();
+    const verticalSwipe = Math.abs(touchStartY - touchEndY);
+    const horizontalSwipe = Math.abs(touchStartX - touchEndX);
     
-    if (touchStartY - touchEndY > 50 && currentIndex < 6) {
-        // Swipe up
-        scrollToSection(currentIndex + 1);
+    // Only handle swipe if it's more vertical than horizontal
+    if (verticalSwipe < horizontalSwipe) {
+        return;
     }
     
-    if (touchEndY - touchStartY > 50 && currentIndex > 0) {
-        // Swipe down
-        scrollToSection(currentIndex - 1);
+    // Require more significant swipe on mobile (150px instead of 50px)
+    if (touchStartY - touchEndY > 150 && currentSection < 6) {
+        // Swipe up - disabled for better scrolling
+        // scrollToSection(currentSection + 1);
+    }
+    
+    if (touchEndY - touchStartY > 150 && currentSection > 0) {
+        // Swipe down - disabled for better scrolling
+        // scrollToSection(currentSection - 1);
     }
 }
 
