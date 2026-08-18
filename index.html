@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Detox & IT Security Guide</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Dots -->
+    <nav class="nav-dots">
+        <button class="nav-dot active" data-section="0" aria-label="Hero"></button>
+        <button class="nav-dot" data-section="1" aria-label="Audit"></button>
+        <button class="nav-dot" data-section="2" aria-label="Detox"></button>
+        <button class="nav-dot" data-section="3" aria-label="Rules"></button>
+        <button class="nav-dot" data-section="4" aria-label="Security"></button>
+        <button class="nav-dot" data-section="5" aria-label="Quiz"></button>
+        <button class="nav-dot" data-section="6" aria-label="Final"></button>
+    </nav>
+
+    <div class="scroll-container">
+        <!-- SECTION 1: HERO -->
+        <section class="section hero-section" id="section-0">
+            <div class="pixel-decoration top-left"></div>
+            <div class="pixel-decoration top-right"></div>
+            <div class="pixel-decoration bottom-left"></div>
+            <div class="pixel-decoration bottom-right"></div>
+            
+            <div class="hero-content">
+                <div class="phone-animation">
+                    <div class="phone">
+                        <div class="phone-screen">
+                            <div class="notification"></div>
+                            <div class="notification"></div>
+                            <div class="notification"></div>
+                        </div>
+                    </div>
+                    <div class="phone-glow"></div>
+                </div>
+                
+                <h1 class="hero-title">
+                    <span class="title-line">LESS SCREEN.</span>
+                    <span class="title-line">MORE LIFE.</span>
+                    <span class="title-line highlight">STAY SAFE ONLINE.</span>
+                </h1>
+                
+                <p class="hero-subtitle">AI-Powered Digital Detox & IT Security Guide</p>
+                
+                <button class="start-button" onclick="scrollToSection(1)">
+                    <span class="button-text">START EXPLORING</span>
+                    <span class="button-arrow">→</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- SECTION 2: PERSONAL AUDIT -->
+        <section class="section audit-section" id="section-1">
+            <div class="section-header">
+                <span class="section-number">[01]</span>
+                <h2 class="section-title">MY WEEKLY SCREEN TIME</h2>
+            </div>
+            
+            <div class="audit-grid">
+                <div class="stat-card clickable" onclick="revealDetail(this)">
+                    <div class="stat-number">42h</div>
+                    <div class="stat-label">TOTAL TIME</div>
+                    <div class="stat-detail">That's 6 hours per day!</div>
+                </div>
+                
+                <div class="stat-card clickable" onclick="revealDetail(this)">
+                    <div class="stat-number">156</div>
+                    <div class="stat-label">PHONE CHECKS</div>
+                    <div class="stat-detail">Every 6 minutes...</div>
+                </div>
+                
+                <div class="stat-card clickable" onclick="revealDetail(this)">
+                    <div class="stat-number">2.5h</div>
+                    <div class="stat-label">BEFORE BED</div>
+                    <div class="stat-detail">Poor sleep quality risk</div>
+                </div>
+            </div>
+            
+            <div class="days-chart">
+                <div class="chart-title">DAILY USAGE</div>
+                <div class="days-grid">
+                    <div class="day-bar" onclick="showDayDetail(this)" data-day="MON" data-hours="5.2">
+                        <div class="bar" style="height: 65%"></div>
+                        <div class="day-label">MON</div>
+                    </div>
+                    <div class="day-bar" onclick="showDayDetail(this)" data-day="TUE" data-hours="6.8">
+                        <div class="bar" style="height: 85%"></div>
+                        <div class="day-label">TUE</div>
+                    </div>
+                    <div class="day-bar" onclick="showDayDetail(this)" data-day="WED" data-hours="5.5">
+                        <div class="bar" style="height: 69%"></div>
+                        <div class="day-label">WED</div>
+                    </div>
+                    <div class="day-bar" onclick="showDayDetail(this)" data-day="THU" data-hours="7.2">
+                        <div class="bar" style="height: 90%"></div>
+                        <div class="day-label">THU</div>
+                    </div>
+                    <div class="day-bar" onclick="showDayDetail(this)" data-day="FRI" data-hours="6.1">
+                        <div class="bar" style="height: 76%"></div>
+                        <div class="day-label">FRI</div>
+                    </div>
+                    <div class="day-bar" onclick="showDayDetail(this)" data-day="SAT" data-hours="5.9">
+                        <div class="bar" style="height: 74%"></div>
+                        <div class="day-label">SAT</div>
+                    </div>
+                    <div class="day-bar" onclick="showDayDetail(this)" data-day="SUN" data-hours="5.3">
+                        <div class="bar" style="height: 66%"></div>
+                        <div class="day-label">SUN</div>
+                    </div>
+                </div>
+                <div class="day-tooltip"></div>
+            </div>
+            
+            <button class="next-button" onclick="scrollToSection(2)">CONTINUE →</button>
+        </section>
+
+        <!-- SECTION 3: DIGITAL DETOX -->
+        <section class="section detox-section" id="section-2">
+            <div class="section-header">
+                <span class="section-number">[02]</span>
+                <h2 class="section-title">COMMON PROBLEMS</h2>
+            </div>
+            
+            <div class="problems-grid">
+                <div class="problem-card" onclick="toggleProblem(this)">
+                    <div class="problem-icon">📱</div>
+                    <h3 class="problem-title">SOCIAL MEDIA TRAP</h3>
+                    <div class="problem-content">
+                        <p class="problem-text">Endless scrolling steals your time and attention.</p>
+                        <div class="problem-solution">
+                            <strong>✓ SOLUTION:</strong>
+                            <p>Set time limits. Turn off notifications. Use apps only 2 times per day.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="problem-card" onclick="toggleProblem(this)">
+                    <div class="problem-icon">🌙</div>
+                    <h3 class="problem-title">LATE NIGHT USE</h3>
+                    <div class="problem-content">
+                        <p class="problem-text">Blue light before bed makes sleeping difficult.</p>
+                        <div class="problem-solution">
+                            <strong>✓ SOLUTION:</strong>
+                            <p>No phone 1 hour before sleep. Charge phone outside bedroom. Read a book instead.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="problem-card" onclick="toggleProblem(this)">
+                    <div class="problem-icon">♾️</div>
+                    <h3 class="problem-title">ENDLESS SCROLLING</h3>
+                    <div class="problem-content">
+                        <p class="problem-text">Apps are designed to keep you watching forever.</p>
+                        <div class="problem-solution">
+                            <strong>✓ SOLUTION:</strong>
+                            <p>Set a timer. Delete addictive apps. Choose quality content over quantity.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="problem-card" onclick="toggleProblem(this)">
+                    <div class="problem-icon">🔔</div>
+                    <h3 class="problem-title">NOTIFICATION OVERLOAD</h3>
+                    <div class="problem-content">
+                        <p class="problem-text">Every ping interrupts your focus and peace.</p>
+                        <div class="problem-solution">
+                            <strong>✓ SOLUTION:</strong>
+                            <p>Turn off all non-essential notifications. Check messages on YOUR time, not app's time.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="next-button" onclick="scrollToSection(3)">CONTINUE →</button>
+        </section>
+
+        <!-- SECTION 4: 5 GOLDEN RULES -->
+        <section class="section rules-section" id="section-3">
+            <div class="section-header">
+                <span class="section-number">[03]</span>
+                <h2 class="section-title">5 GOLDEN RULES</h2>
+            </div>
+            
+            <div class="rules-grid">
+                <div class="rule-card" onclick="expandRule(this)">
+                    <div class="rule-number">01</div>
+                    <h3 class="rule-title">NO PHONE IN BEDROOM</h3>
+                    <div class="rule-expanded">
+                        <p>Your bedroom is for sleeping, not scrolling.</p>
+                        <p>Leave your phone in another room. Use a real alarm clock.</p>
+                        <p><strong>Better sleep = Better life</strong></p>
+                    </div>
+                </div>
+                
+                <div class="rule-card" onclick="expandRule(this)">
+                    <div class="rule-number">02</div>
+                    <h3 class="rule-title">TECH-FREE MORNINGS</h3>
+                    <div class="rule-expanded">
+                        <p>Don't check your phone for the first hour after waking up.</p>
+                        <p>Start your day with YOU, not with other people's posts.</p>
+                        <p><strong>Your morning sets your mood</strong></p>
+                    </div>
+                </div>
+                
+                <div class="rule-card" onclick="expandRule(this)">
+                    <div class="rule-number">03</div>
+                    <h3 class="rule-title">SET CLEAR BOUNDARIES</h3>
+                    <div class="rule-expanded">
+                        <p>Decide when and where you use your phone.</p>
+                        <p>Examples: No phone while eating. No phone when talking to people.</p>
+                        <p><strong>Be present in real life</strong></p>
+                    </div>
+                </div>
+                
+                <div class="rule-card" onclick="expandRule(this)">
+                    <div class="rule-number">04</div>
+                    <h3 class="rule-title">FIND REAL HOBBIES</h3>
+                    <div class="rule-expanded">
+                        <p>Replace screen time with activities you enjoy.</p>
+                        <p>Reading, sports, music, cooking, walking in nature.</p>
+                        <p><strong>Real experiences > Virtual ones</strong></p>
+                    </div>
+                </div>
+                
+                <div class="rule-card" onclick="expandRule(this)">
+                    <div class="rule-number">05</div>
+                    <h3 class="rule-title">WEEKLY DIGITAL DETOX</h3>
+                    <div class="rule-expanded">
+                        <p>One day per week with minimal phone use.</p>
+                        <p>Turn off social media. Use phone only for calls and messages.</p>
+                        <p><strong>Reconnect with yourself</strong></p>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="next-button" onclick="scrollToSection(4)">CONTINUE →</button>
+        </section>
+
+        <!-- SECTION 5: IT SECURITY -->
+        <section class="section security-section" id="section-4">
+            <div class="section-header">
+                <span class="section-number">[04]</span>
+                <h2 class="section-title">IT SECURITY CHECKLIST</h2>
+            </div>
+            
+            <div class="checklist">
+                <div class="checklist-item" onclick="toggleChecklistItem(this)">
+                    <div class="checkbox"></div>
+                    <div class="checklist-content">
+                        <h3 class="checklist-title">🔐 STRONG PASSWORDS</h3>
+                        <div class="checklist-detail">
+                            <p>Use different passwords for different accounts.</p>
+                            <p>Make passwords long (at least 12 characters).</p>
+                            <p>Mix letters, numbers, and symbols: <code>My$ecur3Pass2024!</code></p>
+                            <p><strong>TIP:</strong> Use a password manager app to remember them all.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="checklist-item" onclick="toggleChecklistItem(this)">
+                    <div class="checkbox"></div>
+                    <div class="checklist-content">
+                        <h3 class="checklist-title">🛡️ PROTECT PRIVATE INFO</h3>
+                        <div class="checklist-detail">
+                            <p>Never share: passwords, bank details, ID numbers online.</p>
+                            <p>Be careful what you post on social media.</p>
+                            <p>Check privacy settings on all apps.</p>
+                            <p><strong>REMEMBER:</strong> Once online, it stays online forever.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="checklist-item" onclick="toggleChecklistItem(this)">
+                    <div class="checkbox"></div>
+                    <div class="checklist-content">
+                        <h3 class="checklist-title">⚠️ AVOID SUSPICIOUS LINKS</h3>
+                        <div class="checklist-detail">
+                            <p>Don't click links in strange emails or messages.</p>
+                            <p>Check the sender's email address carefully.</p>
+                            <p>If something looks too good to be true, it probably is.</p>
+                            <p><strong>PHISHING:</strong> Fake messages trying to steal your information.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="checklist-item" onclick="toggleChecklistItem(this)">
+                    <div class="checkbox"></div>
+                    <div class="checklist-content">
+                        <h3 class="checklist-title">✅ SECURE YOUR ACCOUNTS</h3>
+                        <div class="checklist-detail">
+                            <p>Turn on two-factor authentication (2FA) everywhere.</p>
+                            <p>Log out from public computers.</p>
+                            <p>Update your apps and operating system regularly.</p>
+                            <p><strong>2FA:</strong> Second security check (code to your phone) when logging in.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="next-button" onclick="scrollToSection(5)">CONTINUE →</button>
+        </section>
+
+        <!-- SECTION 6: QUIZ -->
+        <section class="section quiz-section" id="section-5">
+            <div class="section-header">
+                <span class="section-number">[05]</span>
+                <h2 class="section-title">QUICK KNOWLEDGE TEST</h2>
+            </div>
+            
+            <div class="quiz-container">
+                <div class="quiz-question active" data-question="0">
+                    <h3 class="question-title">Question 1:</h3>
+                    <p class="question-text">When should you charge your phone at night?</p>
+                    <div class="quiz-options">
+                        <button class="quiz-option" onclick="selectAnswer(this, false)">In my bedroom, next to my bed</button>
+                        <button class="quiz-option" onclick="selectAnswer(this, true)">Outside my bedroom</button>
+                        <button class="quiz-option" onclick="selectAnswer(this, false)">Under my pillow</button>
+                    </div>
+                </div>
+                
+                <div class="quiz-question" data-question="1">
+                    <h3 class="question-title">Question 2:</h3>
+                    <p class="question-text">What makes a password strong?</p>
+                    <div class="quiz-options">
+                        <button class="quiz-option" onclick="selectAnswer(this, false)">Your birthday (easy to remember!)</button>
+                        <button class="quiz-option" onclick="selectAnswer(this, false)">The word "password123"</button>
+                        <button class="quiz-option" onclick="selectAnswer(this, true)">12+ characters with letters, numbers, symbols</button>
+                    </div>
+                </div>
+                
+                <div class="quiz-question" data-question="2">
+                    <h3 class="question-title">Question 3:</h3>
+                    <p class="question-text">You receive an email: "URGENT! Click here to claim your prize!" What do you do?</p>
+                    <div class="quiz-options">
+                        <button class="quiz-option" onclick="selectAnswer(this, false)">Click immediately! Free prize!</button>
+                        <button class="quiz-option" onclick="selectAnswer(this, true)">Delete it. It's probably phishing.</button>
+                        <button class="quiz-option" onclick="selectAnswer(this, false)">Send it to all my friends</button>
+                    </div>
+                </div>
+                
+                <div class="quiz-question" data-question="3">
+                    <h3 class="question-title">Question 4:</h3>
+                    <p class="question-text">How long should you avoid phones after waking up?</p>
+                    <div class="quiz-options">
+                        <button class="quiz-option" onclick="selectAnswer(this, false)">Check immediately!</button>
+                        <button class="quiz-option" onclick="selectAnswer(this, true)">At least 1 hour</button>
+                        <button class="quiz-option" onclick="selectAnswer(this, false)">5 minutes is enough</button>
+                    </div>
+                </div>
+                
+                <div class="quiz-question" data-question="4">
+                    <h3 class="question-title">Question 5:</h3>
+                    <p class="question-text">What is two-factor authentication (2FA)?</p>
+                    <div class="quiz-options">
+                        <button class="quiz-option" onclick="selectAnswer(this, false)">Using two passwords</button>
+                        <button class="quiz-option" onclick="selectAnswer(this, true)">Extra security check (password + code)</button>
+                        <button class="quiz-option" onclick="selectAnswer(this, false)">A type of phone</button>
+                    </div>
+                </div>
+                
+                <div class="quiz-result">
+                    <div class="result-score"></div>
+                    <p class="result-text"></p>
+                    <button class="retry-button" onclick="retryQuiz()">TRY AGAIN</button>
+                    <button class="next-button" onclick="scrollToSection(6)">FINISH →</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7: FINAL -->
+        <section class="section final-section" id="section-6">
+            <div class="pixel-decoration top-left"></div>
+            <div class="pixel-decoration top-right"></div>
+            <div class="pixel-decoration bottom-left"></div>
+            <div class="pixel-decoration bottom-right"></div>
+            
+            <div class="final-content">
+                <h2 class="final-title">
+                    <span class="title-line">CONTROL YOUR SCREEN.</span>
+                    <span class="title-line highlight">PROTECT YOUR DATA.</span>
+                </h2>
+                
+                <div class="final-animation">
+                    <div class="success-icon">✓</div>
+                </div>
+                
+                <p class="final-message">You now have the tools to live better with technology.</p>
+                
+                <div class="final-stats">
+                    <div class="final-stat">
+                        <span class="stat-number">5</span>
+                        <span class="stat-label">Golden Rules</span>
+                    </div>
+                    <div class="final-stat">
+                        <span class="stat-number">4</span>
+                        <span class="stat-label">Security Tips</span>
+                    </div>
+                    <div class="final-stat">
+                        <span class="stat-number">∞</span>
+                        <span class="stat-label">Better Days Ahead</span>
+                    </div>
+                </div>
+                
+                <button class="action-button" onclick="celebrate()">
+                    <span class="button-text">START YOUR JOURNEY</span>
+                    <span class="button-emoji">🚀</span>
+                </button>
+                
+                <button class="restart-button" onclick="scrollToSection(0)">↑ BACK TO START</button>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
