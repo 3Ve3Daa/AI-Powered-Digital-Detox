@@ -1,18 +1,11 @@
-// Scroll to Section
-function scrollToSection(index) {
-    const section = document.getElementById(`section-${index}`);
-    section.scrollIntoView({ behavior: 'smooth' });
-    
-    // Update nav dots
-    document.querySelectorAll('.nav-dot').forEach((dot, i) => {
+// Update page indicator only (no navigation)
+function updatePageIndicator(index) {
+    document.querySelectorAll('.indicator-dot').forEach((dot, i) => {
         dot.classList.toggle('active', i === index);
     });
-    
-    // Update mobile indicator
-    updateMobileNav(index);
 }
 
-// Get current section
+// Get current section based on scroll position
 function getCurrentSection() {
     const sections = document.querySelectorAll('.section');
     const scrollContainer = document.querySelector('.scroll-container');
@@ -30,30 +23,16 @@ function getCurrentSection() {
     return 0;
 }
 
-// Update mobile navigation
-function updateMobileNav(index) {
-    const indicator = document.getElementById('mobile-section-indicator');
-    if (indicator) {
-        const sectionNames = ['START', 'AUDIT', 'DETOX', 'RULES', 'SECURITY', 'QUIZ', 'FINAL'];
-        indicator.textContent = `${index + 1}/7`;
-        // Add small label
-        if (window.innerWidth <= 480) {
-            indicator.textContent = `${index + 1}/7`;
-        } else {
-            indicator.textContent = `${sectionNames[index]} (${index + 1}/7)`;
-        }
-    }
+// Scroll to Section (only for button clicks inside sections)
+function scrollToSection(index) {
+    const section = document.getElementById(`section-${index}`);
+    section.scrollIntoView({ behavior: 'smooth' });
+    updatePageIndicator(index);
 }
 
-// Nav dot click handlers
-document.querySelectorAll('.nav-dot').forEach(dot => {
-    dot.addEventListener('click', () => {
-        const section = parseInt(dot.dataset.section);
-        scrollToSection(section);
-    });
-});
+// Nav dot click handlers - REMOVED (indicator is read-only now)
 
-// Update active nav dot on scroll
+// Update page indicator on scroll
 const scrollContainer = document.querySelector('.scroll-container');
 scrollContainer.addEventListener('scroll', () => {
     const sections = document.querySelectorAll('.section');
@@ -64,10 +43,7 @@ scrollContainer.addEventListener('scroll', () => {
         const bottom = top + section.offsetHeight;
         
         if (scrollPosition >= top && scrollPosition < bottom) {
-            document.querySelectorAll('.nav-dot').forEach((dot, i) => {
-                dot.classList.toggle('active', i === index);
-            });
-            updateMobileNav(index);
+            updatePageIndicator(index);
         }
     });
 });
@@ -269,20 +245,19 @@ function createConfetti(colors) {
     }, 3000);
 }
 
-// Keyboard Navigation
+// Keyboard Navigation - arrow keys for next/previous sections
 document.addEventListener('keydown', (e) => {
-    const currentSection = document.querySelector('.nav-dot.active');
-    const currentIndex = parseInt(currentSection.dataset.section);
+    const currentSection = getCurrentSection();
     
     if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
         e.preventDefault();
-        if (currentIndex < 6) {
-            scrollToSection(currentIndex + 1);
+        if (currentSection < 6) {
+            scrollToSection(currentSection + 1);
         }
     } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
         e.preventDefault();
-        if (currentIndex > 0) {
-            scrollToSection(currentIndex - 1);
+        if (currentSection > 0) {
+            scrollToSection(currentSection - 1);
         }
     }
 });
@@ -328,48 +303,11 @@ window.addEventListener('load', () => {
         document.body.style.opacity = '1';
     }, 100);
     
-    // Initialize mobile nav
-    updateMobileNav(0);
+    // Initialize page indicator
+    updatePageIndicator(0);
 });
 
-// Touch swipe support for mobile
-let touchStartY = 0;
-let touchEndY = 0;
-let touchStartX = 0;
-let touchEndX = 0;
-
-scrollContainer.addEventListener('touchstart', (e) => {
-    touchStartY = e.changedTouches[0].screenY;
-    touchStartX = e.changedTouches[0].screenX;
-}, { passive: true });
-
-scrollContainer.addEventListener('touchend', (e) => {
-    touchEndY = e.changedTouches[0].screenY;
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
-}, { passive: true });
-
-function handleSwipe() {
-    const currentSection = getCurrentSection();
-    const verticalSwipe = Math.abs(touchStartY - touchEndY);
-    const horizontalSwipe = Math.abs(touchStartX - touchEndX);
-    
-    // Only handle swipe if it's more vertical than horizontal
-    if (verticalSwipe < horizontalSwipe) {
-        return;
-    }
-    
-    // Require more significant swipe on mobile (150px instead of 50px)
-    if (touchStartY - touchEndY > 150 && currentSection < 6) {
-        // Swipe up - disabled for better scrolling
-        // scrollToSection(currentSection + 1);
-    }
-    
-    if (touchEndY - touchStartY > 150 && currentSection > 0) {
-        // Swipe down - disabled for better scrolling
-        // scrollToSection(currentSection - 1);
-    }
-}
+// Touch swipe support - DISABLED for free scrolling
 
 // Add accessibility - announce section changes
 function announceSection(sectionName) {
