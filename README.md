@@ -257,7 +257,7 @@ This project is created for educational purposes as part of a university assignm
 ## 👨‍🎓 Author
 
 **Your Name**
-- University: [IITU](https://iitu.edu.kz/ru/)
+- University: [IITU](https://iitu.edu.kz/en/)
 - Course: [Software Engineering]
 - Year: 2026
 - GitHub: [@3Ve3Daa](https://github.com/3Ve3Daa)
