@@ -18,6 +18,19 @@
         <button class="nav-dot" data-section="6" aria-label="Final"></button>
     </nav>
 
+    <!-- Mobile Navigation Bar -->
+    <nav class="mobile-nav">
+        <button class="mobile-nav-btn" onclick="scrollToSection(Math.max(0, getCurrentSection() - 1))">
+            ← PREV
+        </button>
+        <button class="mobile-nav-btn active" id="mobile-section-indicator">
+            1/7
+        </button>
+        <button class="mobile-nav-btn" onclick="scrollToSection(Math.min(6, getCurrentSection() + 1))">
+            NEXT →
+        </button>
+    </nav>
+
     <div class="scroll-container">
         <!-- SECTION 1: HERO -->
         <section class="section hero-section" id="section-0">
